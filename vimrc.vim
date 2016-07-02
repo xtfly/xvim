@@ -332,15 +332,6 @@ let NERDTreeHighlightCursorline=1    " 高亮NERDTrre窗口的当前行
 let NERDSpaceDelims = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" YCM
-" nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" let g:ycm_collect_identifiers_from_tags_files = 1
-" let g:ycm_min_num_of_chars_for_completion=1
-" let g:ycm_server_log_level = 'error'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"

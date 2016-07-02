@@ -13,15 +13,20 @@ mac osx下vim7.4或是对应版本的macvim。
 
  快捷键        | 对应操作
  ------------- | :---------
- `<F8>`        | 打开类/函数视图(tagbar)
  `<F7>`        | 打开文件浏览窗口(NERDTree)
-
-
-
+ `<F8>`        | 打开类/函数视图(tagbar)
+ `<C-j>`       | 窗口上移
+ `<C-k>`       | 窗口下移
+ `<C-h>`       | 窗口左移
+ `<C-l>`       | 窗口右移
+ `<C-Tab>`     | 切换到下一个Buffer
+ `<C-S-Tab>`   | 切换到上一个Buffer
+ `jj`          | ESC
+ `<C-g>`       | ESC
 
 ### 依赖的软件
 
-#### git
+#### vim-go
 - Vundle：依赖git从服务器上下载插件；
 - vim-go：中的`:GoInstallBinaries`命令依赖`go get`，而`go get`依赖git和mercurial；
 
