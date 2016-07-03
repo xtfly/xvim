@@ -47,6 +47,7 @@ Plugin 'honza/vim-snippets'                 "快速插入代码片段snippets
 Plugin 'scrooloose/nerdtree'                "文件浏览，文件树目录
 Plugin 'scrooloose/nerdcommenter'           "快速加减注释
 Plugin 'scrooloose/syntastic'               "代码错误检测，其它应该也类似
+Plugin 'Xuyuanp/nerdtree-git-plugin'        "Git插件
 Plugin 'majutsushi/tagbar'                  "标签列表
 Plugin 'kien/ctrlp.vim'                     "文件搜索,杀手级, 重新定义了编辑器打开文件的方式
 Plugin 'vim-scripts/TaskList.vim'           "快速跳转到TODO列表
@@ -330,6 +331,19 @@ let NERDTreeHighlightCursorline=1    " 高亮NERDTrre窗口的当前行
 " <leader>cc，注释当前选中文本，如果选中的是整行则在每行首添加 //，如果选中
 " leader>cu，取消选中文本块的注释。
 let NERDSpaceDelims = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnips
