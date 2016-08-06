@@ -42,14 +42,14 @@ endif
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-Bundle 'asins/vimcdoc'
+Bundle 'asins/vimcdoc'                      "中文文档
 Plugin 'honza/vim-snippets'                 "快速插入代码片段snippets
 Plugin 'scrooloose/nerdtree'                "文件浏览，文件树目录
 Plugin 'scrooloose/nerdcommenter'           "快速加减注释
 Plugin 'scrooloose/syntastic'               "代码错误检测，其它应该也类似
 Plugin 'Xuyuanp/nerdtree-git-plugin'        "Git插件
 Plugin 'majutsushi/tagbar'                  "标签列表
-Plugin 'kien/ctrlp.vim'                     "文件搜索,杀手级, 重新定义了编辑器打开文件的方式
+Plugin 'kien/ctrlp.vim'                     "文件搜索,杀手级,重新定义了编辑器打开文件的方式
 Plugin 'vim-scripts/TaskList.vim'           "快速跳转到TODO列表
 Plugin 'vim-scripts/SuperTab'               "Tab代码提示
 Plugin 'altercation/vim-colors-solarized'   "一个对眼睛很好的vim 颜色主题
@@ -66,7 +66,8 @@ Plugin 'ConradIrwin/vim-bracketed-paste'    "插入模式下粘贴内容，不�
 Plugin 'fholgado/minibufexpl.vim'           "多文件切换，也可使用鼠标双击相应文件名进行切换
 Plugin 'SirVer/ultisnips'                   "宏定义补全
 Plugin 'Yggdroot/indentLine'                "缩进虚线
-Plugin 'Shougo/neocomplcache.vim'           "自动补全，比较小
+Plugin 'Shougo/neocomplete.vim'             "自动补全
+Plugin 'Shougo/unite.vim'                   "文件或Buffer列表
 Plugin 'Lokaltog/vim-easymotion'            "快速移动,杀手锏，跳转到光标后任意位置
 Plugin 'Raimondi/delimitMate'               "自动括号补全
 
@@ -98,24 +99,24 @@ set number          "行号
 set nobackup        "无备份
 set fileformat=unix "换行使用unix方式
 set fileencodings=uft-8,gbk "使用utf-8或gbk打开文件
-set cursorline      " 高亮显示当前行
-set cursorcolumn    " 高亮显示当前列
-set nu              " 显示行号
-set browsedir=last  " 设置borwse命令打开的目录，current当前，buffer当前buffer相同，last上次的目录
-set autoindent      " 继承前一行的缩进方式
-set scrolloff=3     " 设定光标离窗口上下边界3行时窗口自动滚动
-set smartindent     " 自动缩进
-set expandtab       " 用空格代替tab
+set cursorline      "高亮显示当前行
+set cursorcolumn    "高亮显示当前列
+set nu              "显示行号
+set browsedir=last  "设置borwse命令打开的目录，current当前，buffer当前buffer相同，last上次的目录
+set autoindent      "继承前一行的缩进方式
+set scrolloff=3     "设定光标离窗口上下边界3行时窗口自动滚动
+set smartindent     "自动缩进
+set expandtab       "用空格代替tab
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set backspace=indent,eol,start
 " 显示一些不显示的空白字符
-set listchars=tab:>-,eol:$,trail:-  " 通过 set list和 set nolist控制是否显示或是用set list!切换显示
+set listchars=tab:>-,eol:$,trail:-  "通过 set list和 set nolist控制是否显示或是用set list!切换显示
 
-"set foldmethod=indent     " indent 折叠方式
-"set foldmethod=marker     " marker 折叠方式
-set autoread               " 当文件在外部被修改，自动更新该文件
+"set foldmethod=indent     "indent 折叠方式
+"set foldmethod=marker     "marker 折叠方式
+set autoread               "当文件在外部被修改，自动更新该文件
 
 " 弹出框样式，比如自动补全的下拉框。
 highlight Pmenu    guibg=darkgrey  guifg=black
@@ -322,9 +323,9 @@ nmap <F8> :TagbarToggle<CR>
 " NERDTree
 nmap <F7> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc', '\.out$', 'bak$', 'node_modules', 'dist']
-let NERDTreeShowHidden=0             " 不显示隐藏文件(好像只在linux环境中有效)
-let NEDTreeCaseSensitiveSort=0       " 不分大小写排序c$','/.h$', '*']    // 排序
-let NERDTreeHighlightCursorline=1    " 高亮NERDTrre窗口的当前行
+let NERDTreeShowHidden=0             "不显示隐藏文件(好像只在linux环境中有效)
+let NEDTreeCaseSensitiveSort=0       "不分大小写排序c$','/.h$', '*']    // 排序
+let NERDTreeHighlightCursorline=1    "高亮NERDTrre窗口的当前行
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " nerdcommenter
@@ -374,7 +375,7 @@ let g:miniBufExplModSelTarget       = 1 "解决FileExplorer窗口变小问题
 let g:miniBufExplForceSyntaxEnable  = 1
 let g:miniBufExplorerMoreThanOne    = 2
 let g:miniBufExplCycleArround       = 1
-" buffer 切换快捷键，默认方向键左右可以切换buffer
+"buffer 切换快捷键，默认方向键左右可以切换buffer
 map <C-Tab> :MBEbn<cr>
 map <C-S-Tab> :MBEbp<cr>
 
@@ -386,26 +387,24 @@ nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_min_syntax_length = 3
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType go setlocal omnifunc=go#complete#Complete
-autocmd Filetype c setlocal omnifunc=ccomplete#Complete
 
 " Enable heavy omni completion.
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
 endif
-let g:neocomplcache_force_omni_patterns.go = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.go = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags
@@ -424,11 +423,11 @@ let g:indentLine_color_gui = '#A4E57E'
 let g:indentLine_char = '|'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 语法错误
+"语法错误
 let g:syntastic_error_symbol = ">>"
 let g:syntastic_warning_symbol = ">"
-" 语法风格错误
+"语法风格错误
 let g:syntastic_style_error_symbol="✗"
 let g:syntastic_style_warning_symbol="⚠"
-" 开启各类语言的语法检测
+"开启各类语言的语法检测
 let g:syntastic_go_checkers = 1
