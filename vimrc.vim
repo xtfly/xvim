@@ -395,18 +395,17 @@ let g:neocomplcache_min_syntax_length = 3
 
 " Enable omni completion. Not required if they are already set elsewhere in .vimrc
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType go setlocal omnifunc=gocomplete#Complete
+autocmd FileType go setlocal omnifunc=go#complete#Complete
 autocmd Filetype c setlocal omnifunc=ccomplete#Complete
 
-" Enable heavy omni completion, which require computational power and may stall the vim.
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
 endif
-let g:neocomplcache_omni_patterns.c     = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.go    = '\h\w*\.'
-let g:neocomplcache_omni_patterns.cpp   = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.go = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags
