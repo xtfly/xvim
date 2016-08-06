@@ -7,7 +7,7 @@ Vim
 windows/linux下只通过gvim7.4的测试。
 mac osx下vim7.4或是对应版本的macvim。
 
-### 快捷键
+## 快捷键
 
 自定义的快捷键:
 
@@ -24,21 +24,31 @@ mac osx下vim7.4或是对应版本的macvim。
  `jj`          | ESC
  `<C-g>`       | ESC
 
-### 依赖的软件
+## 依赖的软件
 
-#### vim-go
+### vim-go
 - Vundle：依赖git从服务器上下载插件；
 - vim-go：中的`:GoInstallBinaries`命令依赖`go get`，而`go get`依赖git和mercurial；
 
-#### ctags
+### ctags
 majutsushi/tagbar插件依赖ctags来解析。可以从以下地址下载：
 [ctags](http://ctags.sourceforge.net/)
 
-#### vim-go
+若是ArchLinux，可以直接安装
+```shell
+sudo pacman -S ctags
+```
+
+若是osx，可采用brew安装
+```shell
+brew install ctags
+```
+
+### vim-go
 vim-go插件依赖一大堆go程序，可以通过运行`:GoInstallBinaries`来自行安装，
 前提是你已经正确安装go、git和mercurial。而且有一部分go程序源代码处在墙外面。
 
-#### powerline-fonts
+### powerline-fonts
 airline需要使用到这些字体，用于美化状态栏。
 
 linux/osx：
@@ -56,9 +66,9 @@ windows下，则直接将[powerline-fonts](https://github.com/Lokaltog/powerline
 let g:airline_powerline_fonts = 1
 ```
 
-### 安装
+## 安装
 
-#### windows
+### windows
 ```shell
 # 下载xvim
 cd x:\
@@ -82,10 +92,10 @@ git clone https://github.com/gmarik/Vundle.vim
 windows7之前的版本没有`mklink`命令，可以直接复制需要的文件到指定目录。
 
 
-#### linux & os x
+### linux & osx
 ```shell
 # 下载xvim
-cd 
+cd ~
 git clone https://github.com/xtfly/xvim .xvim
 
 unlink  ~/.vimrc
@@ -103,6 +113,6 @@ ln -s ~/.xvim/ultisnippets  ./ultisnippets
 vim +PluginIntall
 ```
 
-### 版权
+## 版权
 
 本项目采用[MIT](http://opensource.org/licenses/MIT)开源授权许可证，完整的授权说明可在[LICENSE](LICENSE)文件中找到。
