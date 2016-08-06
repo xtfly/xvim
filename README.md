@@ -60,8 +60,12 @@ let g:airline_powerline_fonts = 1
 
 #### windows
 ```shell
+# 下载xvim
+cd x:\
+git clone https://github.com/xtfly/xvim xvim 
+
 # 切换到vim安装根目录
-cd x:\xvim
+cd x:\xvim 
 
 # 将配置文件链接到vimrc.vim，若已经存在_vimrc可以先删除
 mklink _vimrc x:\xvim\vimrc.vim
@@ -78,13 +82,17 @@ git clone https://github.com/gmarik/Vundle.vim
 windows7之前的版本没有`mklink`命令，可以直接复制需要的文件到指定目录。
 
 
-#### linux
+#### linux & os x
 ```shell
+# 下载xvim
+cd 
+git clone https://github.com/xtfly/xvim .xvim
+
 unlink  ~/.vimrc
 ln -s ~/.xvim/vimrc.vim  ~/.vimrc
 
 # 安装Vundle
-mkdir ~/.vim/bundle/
+mkdir -p ~/.vim/bundle/
 cd ~/.vim/bundle/
 git clone https://github.com/gmarik/Vundle.vim
 
@@ -93,25 +101,6 @@ ln -s ~/.xvim/ultisnippets  ./ultisnippets
 
 # 安装所有的插件
 vim +PluginIntall
-```
-
-#### os x
-```shell
-unlink  ~/.vimrc
-ln -s ~/xvim/vimrc.vim  ~/.vimrc
-
-# 安装Vundle
-mkdir ~/.vim/bundle/
-cd ~/.vim/bundle/
-git clone https://github.com/gmarik/Vundle.vim
-
-# 链接ultisnippets到rtp
-cd ~/.vim/
-ln -s ~/xvim/ultisnippets  ./ultisnippets
-
-# 安装所有的插件
-vim +PluginIntall
-
 ```
 
 ### 版权
