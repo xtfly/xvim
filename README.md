@@ -4,7 +4,7 @@ Vim
 自用的一个vim配置文件，适用于`Go`语言环境。
 
 适用版本：
-windows/linux下只通过gvim7.4的测试。
+linux下只通过vim7.4的测试。
 mac osx下vim7.4或是对应版本的macvim。
 
 ## 快捷键
@@ -59,38 +59,7 @@ cd fonts
 ./install.sh
 ```
 
-windows下，则直接将[powerline-fonts](https://github.com/Lokaltog/powerline-fonts)下的字体依次安装下即可。
-
-安装完之后，在配置文件(vimrc.vim)中的到以下变量，将其值设置为1，才能起作用：
-```vim
-let g:airline_powerline_fonts = 1
-```
-
 ## 安装
-
-### windows
-```shell
-# 下载xvim
-cd x:\
-git clone https://github.com/xtfly/xvim xvim 
-
-# 切换到vim安装根目录
-cd x:\xvim 
-
-# 将配置文件链接到vimrc.vim，若已经存在_vimrc可以先删除
-mklink _vimrc x:\xvim\vimrc.vim
-
-# 若不存在bundle，则手动创建。
-cd vimfiles/bundle/
-mklink ultisnippets x:\xvim\ultisnippets
-
-# 安装Vundle
-git clone https://github.com/gmarik/Vundle.vim
-```
-在gvim中执行`:PluginInstall`命令安装其它插件。
-
-windows7之前的版本没有`mklink`命令，可以直接复制需要的文件到指定目录。
-
 
 ### linux & osx
 ```shell
