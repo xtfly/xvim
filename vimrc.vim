@@ -11,8 +11,6 @@ if has("gui_running")
     elseif has("gui_macvim")
         set guifont=monofur\ for\ Powerline:h15
         set guifontwide=STHeiti:h15
-    elseif has("gui_kde")
-        " todo
     elseif has("gui_win32")
         set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h13
         set guifontwide=Microsoft\ YaHei\ UI:h12
@@ -63,7 +61,7 @@ Plugin 'fatih/vim-go'                       "GO语言
 Plugin 'bling/vim-airline'                  "状态栏
 Plugin 'junegunn/vim-easy-align'            "方便的按分隔符对齐,比如=号
 Plugin 'ConradIrwin/vim-bracketed-paste'    "插入模式下粘贴内容，不会有任何变形 :set paste
-Plugin 'fholgado/minibufexpl.vim'           "多文件切换，也可使用鼠标双击相应文件名进行切换
+"Plugin 'fholgado/minibufexpl.vim'           "多文件切换，也可使用鼠标双击相应文件名进行切换
 Plugin 'SirVer/ultisnips'                   "宏定义补全
 Plugin 'Yggdroot/indentLine'                "缩进虚线
 Plugin 'Shougo/neocomplete.vim'             "自动补全
@@ -98,7 +96,8 @@ set mouse=a         "控制台启用鼠标
 set number          "行号
 set nobackup        "无备份
 set fileformat=unix "换行使用unix方式
-set fileencodings=uft-8,gbk "使用utf-8或gbk打开文件
+set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
+set encoding=utf-8
 set cursorline      "高亮显示当前行
 set cursorcolumn    "高亮显示当前列
 set nu              "显示行号
@@ -208,19 +207,18 @@ let g:airline_mode_map = {
       \ 'c'  : '命令行',
       \ 'v'  : '可视',
       \ 'V'  : '可视',
-      \ ''   : '可视',
+      \ ''  : '可视',
       \ 's'  : '选择',
       \ 'S'  : '选择',
-      \ ''   : '选择',
+      \ ''  : '选择',
       \ }
 
 set laststatus=2
 
-" airline-tabline扩展设计，若需要更专业的buffer列表显示插件，
-" 可以使用 techlivezheng/vim-plugin-minibufexpl 插件！
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#buffer_nr_show = 1
-"let g:airline#extensions#tabline#fnamemod = ':p:t' " 只显示文件名，不显示路径内容。
+" airline-tabline扩展设计
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#fnamemod = ':p:t' " 只显示文件名，不显示路径内容。
 
 if g:airline_powerline_fonts == 0
     let g:airline#extensions#tabline#left_sep = '▶'

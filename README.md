@@ -19,8 +19,7 @@ mac osx下vim7.4或是对应版本的macvim。
  `<C-k>`       | 窗口下移
  `<C-h>`       | 窗口左移
  `<C-l>`       | 窗口右移
- `<C-Tab>`     | 切换到下一个Buffer
- `<C-S-Tab>`   | 切换到上一个Buffer
+ `<C-Tab>`     | 切换到下一个Buffer/ `<C-S-Tab>`   | 切换到上一个Buffer
  `jj`          | ESC
  `<C-g>`       | ESC
 
@@ -54,7 +53,7 @@ airline需要使用到这些字体，用于美化状态栏。
 linux/osx：
 ```shell
 cd ~
-git clone github.com:powerline/fonts
+git clone https://github.com/powerline/fonts.git
 cd fonts
 ./install.sh
 ```
