@@ -5,7 +5,7 @@ if has("gui_running")
         " 比英文字体大一点，这样汉字的间距就不会太大了
         set guifontwide=Droid\ Sans\ 13
     elseif has("gui_kde")
-        "set guifont=Courier\ New/11/-1/5/50/0/0/0/1/0
+        set guifont=Courier\ New/11/-1/5/50/0/0/0/1/0
     elseif has("x11")
         "set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
     elseif has("gui_macvim")
@@ -20,70 +20,65 @@ if has("gui_running")
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle
-" https://github.com/gmarik/Vundle.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set the runtime path to include Vundle and initialize
-if has("win32")
-    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-    call vundle#rc('$VIM/vimfiles/bundle/')
-else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-endif
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-"plugin 'asins/vimcdoc'                      "中文文档
-Plugin 'honza/vim-snippets'                 "快速插入代码片段snippets
-Plugin 'scrooloose/nerdtree'                "文件浏览，文件树目录
-Plugin 'scrooloose/nerdcommenter'           "快速加减注释
-Plugin 'scrooloose/syntastic'               "代码错误检测，其它应该也类似
-Plugin 'Xuyuanp/nerdtree-git-plugin'        "Git插件
-Plugin 'majutsushi/tagbar'                  "标签列表
-Plugin 'kien/ctrlp.vim'                     "文件搜索,杀手级,重新定义了编辑器打开文件的方式
-Plugin 'vim-scripts/TaskList.vim'           "快速跳转到TODO列表
-Plugin 'vim-scripts/SuperTab'               "Tab代码提示
-Plugin 'altercation/vim-colors-solarized'   "一个对眼睛很好的vim 颜色主题
-Plugin 'tomasr/molokai'                     "另一种颜色主题
-Plugin 'fannheyward/rainbow_parentheses.vim' "括号匹配高亮
-Plugin 'tpope/vim-surround'                 "快速加环绕符
-Plugin 'tpope/vim-repeat'                   "配合使用增强版命令重复
-Plugin 'tpope/vim-sensible'                 "基本的Vim设置
-Plugin 'mhinz/vim-startify'                 "更改开始界面的插件
-Plugin 'fatih/vim-go'                       "GO语言
-Plugin 'bling/vim-airline'                  "状态栏
-Plugin 'junegunn/vim-easy-align'            "方便的按分隔符对齐,比如=号
-Plugin 'ConradIrwin/vim-bracketed-paste'    "插入模式下粘贴内容，不会有任何变形 :set paste
-"Plugin 'fholgado/minibufexpl.vim'           "多文件切换，也可使用鼠标双击相应文件名进行切换
-Plugin 'SirVer/ultisnips'                   "宏定义补全
-Plugin 'Yggdroot/indentLine'                "缩进虚线
-Plugin 'Shougo/neocomplete.vim'             "自动补全
-Plugin 'Shougo/unite.vim'                   "文件或Buffer列表
-Plugin 'Lokaltog/vim-easymotion'            "快速移动,杀手锏，跳转到光标后任意位置
-Plugin 'Raimondi/delimitMate'               "自动括号补全
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
 let mapleader=","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set background=dark
+" vim-plug
+" https://github.com/junegunn/vim-plug
+
+if has("win32")
+    call plug#begin('$VIM/vimfiles/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
+
+"plugin 'asins/vimcdoc'                      "中文文档
+Plug 'honza/vim-snippets'                 "快速插入代码片段snippets
+Plug 'scrooloose/nerdtree'                "文件浏览，文件树目录
+Plug 'scrooloose/nerdcommenter'           "快速加减注释
+Plug 'scrooloose/syntastic'               "代码错误检测，其它应该也类似
+Plug 'Xuyuanp/nerdtree-git-plugin'        "Git插件
+Plug 'airblade/vim-gitgutter'             "Git插件
+Plug 'majutsushi/tagbar'                  "标签列表
+Plug 'kien/ctrlp.vim'                     "文件搜索
+Plug 'vim-scripts/TaskList.vim'           "快速跳转到TODO列表
+Plug 'vim-scripts/SuperTab'               "Tab代码提示
+Plug 'altercation/vim-colors-solarized'   "一个对眼睛很好的vim 颜色主题
+Plug 'tomasr/molokai'                     "另一种颜色主题
+Plug 'fannheyward/rainbow_parentheses.vim' "括号匹配高亮
+Plug 'tpope/vim-surround'                 "快速加环绕符
+Plug 'tpope/vim-repeat'                   "配合使用增强版命令重复
+Plug 'tpope/vim-sensible'                 "基本的Vim设置
+Plug 'mhinz/vim-startify'                 "更改开始界面的插件
+Plug 'fatih/vim-go'                       "GO语言
+Plug 'vim-airline/vim-airline'            "状态栏
+Plug 'vim-airline/vim-airline-themes'     "状态栏
+Plug 'junegunn/vim-easy-align'            "方便的按分隔符对齐,比如=号
+Plug 'ConradIrwin/vim-bracketed-paste'    "插入模式下粘贴内容，不会有任何变形 :set paste
+"Plug 'fholgado/minibufexpl.vim'           "多文件切换，也可使用鼠标双击相应文件名进行切换
+Plug 'SirVer/ultisnips'                   "宏定义补全
+Plug 'Yggdroot/indentLine'                "缩进虚线
+Plug 'Shougo/neocomplete.vim'             "自动补全
+Plug 'Shougo/unite.vim'                   "文件或Buffer列表
+Plug 'Lokaltog/vim-easymotion'            "快速移动,杀手锏，跳转到光标后任意位置
+Plug 'Raimondi/delimitMate'               "自动括号补全
+
+" All of your Plugs must be added before the following line
+call plug#end()            
+filetype plugin indent on   
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme solarized
-colors molokai
+colorscheme molokai
 set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let $LANG='zh_CN.UTF-8'
+set fileformat=unix "换行使用unix方式
+set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
+set encoding=utf-8
 set langmenu=zh_CN.utf-8 " 菜单语言，必须要在 set encoding之后,界面加载之前
 set ruler           "在左下角显示当前文件所在行
 set showcmd         "在状态栏显示命令
@@ -95,12 +90,8 @@ set report=0        "显示修改次数
 set mouse=a         "控制台启用鼠标
 set number          "行号
 set nobackup        "无备份
-set fileformat=unix "换行使用unix方式
-set fileencodings=utf-8,gbk "使用utf-8或gbk打开文件
-set encoding=utf-8
 set cursorline      "高亮显示当前行
 set cursorcolumn    "高亮显示当前列
-set nu              "显示行号
 set browsedir=last  "设置borwse命令打开的目录，current当前，buffer当前buffer相同，last上次的目录
 set autoindent      "继承前一行的缩进方式
 set scrolloff=3     "设定光标离窗口上下边界3行时窗口自动滚动
@@ -199,20 +190,6 @@ if g:airline_powerline_fonts == 0
     let g:airline_symbols.readonly = ''
 endif
 
-let g:airline_mode_map = {
-      \ '__' : '-',
-      \ 'n'  : '标准',
-      \ 'i'  : '插入',
-      \ 'R'  : '替换',
-      \ 'c'  : '命令行',
-      \ 'v'  : '可视',
-      \ 'V'  : '可视',
-      \ ''  : '可视',
-      \ 's'  : '选择',
-      \ 'S'  : '选择',
-      \ ''  : '选择',
-      \ }
-
 set laststatus=2
 
 " airline-tabline扩展设计
@@ -285,41 +262,27 @@ let g:rbpt_loadcmd_toggle = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Startify
 let g:startify_custom_header = [
-    \'                        740442277',
-    \'                     788888888888847',
-    \'                   788888888477288888                   772088888047',
-    \'                  7888880857     58888     7         79888888888008882',
-    \'                  8827277        788882 5888888857  78888888800900450887',
-    \'                 784              588888845908888882880885775809554444587',
-    \'                 782              78842 7   7777777884402    7708455444587',
-    \'                  82 77     77777  057             284547      74804980049',
-    \'                  722544772772272478277            78547         5888880087',
-    \'                   877777872    7  027 7         7 780427777      708889908',
-    \'                   777  77  77     487   77    77   089777727     77  184987',
-    \'                   77   77  7      157   77    77   0807 777           04487',
-    \'                    7   777   7    277             78887         77    20582',
-    \'                    77  7777777   75 77            78007     777777777 70585',
-    \'                      7         770   77    777     88047777777   77   28087',
-    \'                      4777    77298   7477      71772888077 777   7   78885',
-    \'                   28887772251122584777722277772772777772777        728807',
-    \'               7588888807      771777777777777777727777    7477    7247777  777',
-    \'         77 772827    200427   7777777777777777777722585   5425227777   757 77 777',
-    \'       7   72277   777744490427777777777777777   74007705 727  7   7     777  74 72',
-    \'     7881777777777777777721248877777777777727777  752     7977  777         7 7 77777',
-    \'    78548821545000244449080088277777777777777217        77727777   7               777',
-    \'    8952208858044544809552245527777777777727127 77      7777  7 7 7                  7',
-    \'',
-    \]
+\'   １１１ＭＭＭ１１１１ＭＭＭ１１１１ＭＭＭ１１１１１ＭＭＭ１１１１１１１１１１１１１１１１１１１１１１１１１１１１１１１１',
+\'   １１１ＭＭＭＭ１１ＭＭＭＭ１１１１ＭＭＭＭ１１１１ＭＭＭ１１１１１１ＭＭＭＭＭＭＭＭ１１１１１ＭＭＭＭ１１１１ＭＭＭＭ１',
+\'   １１１ＭＭＭＭ１ＭＭＭＭ１１１１１１ＭＭＭ１１１ＭＭＭＭ１１１１１１ＭＭＭＭＭＭＭＭ１１１１１ＭＭＭＭ１１１１ＭＭＭＭ１',
+\'   １１１１ＭＭＭＭＭＭＭ１１１１１１１ＭＭＭＭ１１ＭＭＭ１１１１１１１１１ＭＭＭ１１１１１１１１ＭＭＭＭＭ１１ＭＭＭＭＭ１',
+\'   １１１１１ＭＭＭＭＭＭ１１１１１１１ＭＭＭＭ１１ＭＭＭ１１１１１１１１１ＭＭＭ１１１１１１１１ＭＭＭＭＭ１１ＭＭＭＭＭ１',
+\'   １１１１１ＭＭＭＭＭ１１１１１１１１１ＭＭＭ１ＭＭＭ１１１１１１１１１１ＭＭＭ１１１１１１１１ＭＭＭＭＭＭ１ＭＭＭＭＭ１',
+\'   １１１１１ＭＭＭＭＭ１１１１１１１１１ＭＭＭ１ＭＭＭ１１１１１１１１１１ＭＭＭ１１１１１１１１ＭＭ１ＭＭＭＭＭＭＭＭＭ１',
+\'   １１１１１ＭＭＭＭＭＭ１１１１１１１１１ＭＭＭＭＭＭ１１１１１１１１１１ＭＭＭ１１１１１１１１ＭＭ１ＭＭＭＭＭＭＭＭＭ１',
+\'   １１１１ＭＭＭＭＭＭＭＭ１１１１１１１１ＭＭＭＭＭ１１１１１１１１１１１ＭＭＭ１１１１１１１１ＭＭ１１ＭＭＭＭ１ＭＭＭ１',
+\'   １１１ＭＭＭＭ１ＭＭＭＭ１１１１１１１１ＭＭＭＭＭ１１１１１１１１１ＭＭＭＭＭＭＭＭ１１１１１ＭＭ１１ＭＭＭＭ１ＭＭＭ１',
+\'   １１１ＭＭＭ１１１ＭＭＭＭ１１１１１１１１ＭＭＭＭ１１１１１１１１１ＭＭＭＭＭＭＭＭ１１１１１ＭＭ１１ＭＭＭＭ１ＭＭＭ１']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 0
-nmap <F8> :TagbarToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTree
-nmap <F7> :NERDTreeToggle<CR>
+nmap <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc', '\.out$', 'bak$', 'node_modules', 'dist']
 let NERDTreeShowHidden=0             "不显示隐藏文件(好像只在linux环境中有效)
 let NEDTreeCaseSensitiveSort=0       "不分大小写排序c$','/.h$', '*']    // 排序
