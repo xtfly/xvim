@@ -70,11 +70,11 @@ else
   else
     Plug 'Shougo/neocomplete.vim'
   endif
-endif
-Plug 'Shougo/deoplete.vim'              
+endif          
 Plug 'Shougo/unite.vim'                   "文件或Buffer列表
 Plug 'Lokaltog/vim-easymotion'            "快速移动,杀手锏，跳转到光标后任意位置
 Plug 'Raimondi/delimitMate'               "自动括号补全
+Plug 'wsdjeg/FlyGrep.vim'                 "Asynchronously fly grep in vim
 
 " All of your Plugs must be added before the following line
 call plug#end()            
@@ -160,7 +160,8 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 自动切换目录为当前编辑文件所在目录
-au BufRead,BufNewFile,BufEnter * cd %:p:h
+"au BufRead,BufNewFile,BufEnter * cd %:p:h
+set autochdir
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Allow saving of files as sudo when I forgot to start vim using sudo.
@@ -409,3 +410,5 @@ if !empty(glob("~/.vim/plugged/deoplete.nvim"))
     let g:deoplete#enable_at_startup = 1
     call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 endif
+
+nnoremap <C-F> :FlyGrep<cr>
