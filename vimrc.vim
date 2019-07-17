@@ -60,7 +60,18 @@ Plug 'ConradIrwin/vim-bracketed-paste'    "插入模式下粘贴内容，不会�
 "Plug 'fholgado/minibufexpl.vim'           "多文件切换，也可使用鼠标双击相应文件名进行切换
 Plug 'SirVer/ultisnips'                   "宏定义补全
 Plug 'Yggdroot/indentLine'                "缩进虚线
-Plug 'Shougo/neocomplete.vim'             "自动补全
+if has('nvim')                            "自动补全
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  if has("python3")
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  else
+    Plug 'Shougo/neocomplete.vim'
+  endif
+endif
+Plug 'Shougo/deoplete.vim'              
 Plug 'Shougo/unite.vim'                   "文件或Buffer列表
 Plug 'Lokaltog/vim-easymotion'            "快速移动,杀手锏，跳转到光标后任意位置
 Plug 'Raimondi/delimitMate'               "自动括号补全
@@ -392,3 +403,9 @@ let g:syntastic_style_error_symbol="✗"
 let g:syntastic_style_warning_symbol="⚠"
 "开启各类语言的语法检测
 let g:syntastic_go_checkers = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if !empty(glob("~/.vim/plugged/deoplete.nvim"))
+    let g:deoplete#enable_at_startup = 1
+    call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+endif

@@ -3,7 +3,7 @@ Vim
 
 自用的vim配置，适用于 `Go` 语言最小开发环境。
 
-适用版本：只在MacOS与Linux下vim8.0+测试验证过。
+适用版本：只在MacOS与Linux下vim8.0+与NeoVim上测试验证过。
 
 ## 安装
 
@@ -14,11 +14,12 @@ Vim
 cd ~
 git clone https://github.com/xtfly/xvim .xvim
 
-unlink  ~/.vimrc
-ln -s ~/.xvim/vimrc.vim  ~/.vimrc
+mkdir -p ~/.vim
+ln -fs ~/.xvim/vimrc.vim  ~/.vimrc
+ln -fs ~/.vim ~/.config/nvim
+ln -fs ~/.xvim/vimrc.vim  ~/.config/nvim/init.vim
 
 # 安装vim-plug
-mkdir -p ~/.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # 安装所有的插件
