@@ -28,7 +28,7 @@ ln -fs ~/.xvim/vimrc.vim  ~/.config/nvim/init.vim
 
 补全插件([neoclide/coc.nvim](https://github.com/neoclide/coc.nvim/wiki/Install-coc.nvim))依赖nodejs
 
-若是ArchLinux，可以直接安装： `sudo pacman -S node`
+若是ArchLinux，可以直接安装： `sudo pacman -S nodejs && sudo pacman -S npm`
 
 若是MacOS，可采用brew安装： `brew install node`
 
@@ -67,6 +67,7 @@ vim-go插件依赖一大堆go程序，可以通过运行`:GoInstallBinaries`来�
  `L`           | 右移行尾
  `J`           | 下移20行
  `K`           | 上移20行
+ `<Space-e>`   | 打开终端
 
 ### 功能键
 
@@ -116,7 +117,7 @@ vim-go插件依赖一大堆go程序，可以通过运行`:GoInstallBinaries`来�
  `gi`          | 实现查找
  `gy`          | 类型定义
  `<Space-r>`   | 符号改名
- `<Space-o>`   | 显示文档
+ `<Space-d>`   | 显示文档
  `<Space-s>`   | 选中一段
  `<Space-x>`   | 选中一个单词
  `<Space-a>`   | 对齐
@@ -125,14 +126,6 @@ vim-go插件依赖一大堆go程序，可以通过运行`:GoInstallBinaries`来�
  `<Space-z>`   | 折叠
  `<C-o>`       | 向后跳转
  `<C-t>`       | 多次回跳
-
-### Mark
-
- 快捷键         | 对应操作
- ------------- | :---------
- `mm`          | 打Mark
- `m[`          | 上一个Mark
- `m]>`         | 下一个Mark
 
 ### 翻译
 

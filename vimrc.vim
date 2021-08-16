@@ -129,7 +129,7 @@ let g:go_highlight_build_constraints = 1
 let g:go_auto_type_info = 0
 
 " CoC
-Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
+"Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
@@ -209,6 +209,9 @@ Plug 'tpope/vim-commentary'
 " Find & Replace
 Plug 'brooth/far.vim'
 
+" FloatTerm
+Plug 'voldikss/vim-floaterm'
+
 Plug 'vim-scripts/vim-auto-save'
 let g:auto_save_silent = 1 
 autocmd FileType markdown let g:auto_save = 1
@@ -236,7 +239,7 @@ set number          "行号
 set nowritebackup
 set nobackup        "无备份
 set cursorline      "高亮显示当前行
-set cursorcolumn    "高亮显示当前列
+"set cursorcolumn    "高亮显示当前列
 set browsedir=last  "设置borwse命令打开的目录，current当前，buffer当前buffer相同，last上次的目录
 set autoindent      "继承前一行的缩进方式
 set scrolloff=3     "设定光标离窗口上下边界3行时窗口自动滚动
@@ -276,6 +279,7 @@ inoremap jj <Esc>
 noremap Q :wq<CR>
 noremap <C-q> :qa<CR>
 noremap S :w<CR>
+noremap <silent><LEADER>e :FloatermNew<CR>
 
 " 多个窗口之间切换
 noremap <silent><LEADER>h <C-w>h
@@ -344,7 +348,6 @@ noremap L $
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:coc_global_extensions = [
-            \ 'coc-bookmark',
             \ 'coc-cmake',
             \ 'coc-explorer',
             \ 'coc-git',
@@ -353,10 +356,11 @@ let g:coc_global_extensions = [
             \ 'coc-clangd',
             \ 'coc-stylelint',
             \ 'coc-todolist',
-            \ 'coc-toml',
             \ 'coc-yaml',
             \ 'coc-json',
             \ 'coc-yank',
+            \ 'coc-markdownlint',
+            \ 'coc-floaterm',
             \ 'coc-translator',
             \  ]
 
@@ -375,11 +379,6 @@ nmap <silent> d] <Plug>(coc-diagnostic-next)
 
 xmap <leader>a <Plug>(coc-codeaction-selected)
 nmap <leader>a <Plug>(coc-codeaction-selected)
-
-" m - toggle mark
-map mm <Plug>(coc-bookmark-toggle)
-map m] <Plug>(coc-bookmark-next)
-map m[ <Plug>(coc-bookmark-prev)
 
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
